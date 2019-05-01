@@ -16,11 +16,11 @@ api = tweepy.API(auth)
 #emoji may give trouble when printing (not saving) so creating a translation table
 non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
 
-f = open('tweepy_tweets.csv', 'w')
+f = open('scooter_tweets.csv', 'w')
 writer = csv.writer(f)
 writer.writerow(["id","created_at","text"])
 
-alltweets = tweepy.Cursor(api.search, q='starbucks').items()
+alltweets = tweepy.Cursor(api.search, q='scooter').items()
 for tweet in alltweets:
  #print(str(tweet).translate(non_bmp_map))
  # outtweets = [tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")]
