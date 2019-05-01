@@ -23,7 +23,8 @@ writer.writerow(["id","created_at","text"])
 alltweets = tweepy.Cursor(api.search, q='starbucks').items()
 for tweet in alltweets:
  #print(str(tweet).translate(non_bmp_map))
- outtweets = [tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")]
+ # outtweets = [tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")]
+ outtweets = [tweet.id_str, tweet.created_at, tweet.text]
  writer.writerow(outtweets)
  print(outtweets)
 f.close()
